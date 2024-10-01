@@ -422,3 +422,4 @@
 {"exitCode":0,"level":"info","message":"👾 Game executed mainExample.DinoGame on c:\\Users\\Alan\\Desktop\\PROGAMACION\\WOLLOK\\dino2-te-amordido-un-perro","timeElapsed":7052,"timestamp":"2024-10-01T23:57:00.459Z"}
 {"exitCode":0,"level":"info","message":"👾 Game executed mainExample.DinoGame on c:\\Users\\Alan\\Desktop\\PROGAMACION\\WOLLOK\\dino2-te-amordido-un-perro","timeElapsed":4792,"timestamp":"2024-10-01T23:57:16.315Z"}
 {"exitCode":0,"level":"info","message":"👾 Game executed mainExample.DinoGame on c:\\Users\\Alan\\Desktop\\PROGAMACION\\WOLLOK\\dino2-te-amordido-un-perro","timeElapsed":7811,"timestamp":"2024-10-01T23:57:29.785Z"}
+{"failures":[],"level":"info","message":"🧪 Test runner executed on c:\\Users\\Alan\\Desktop\\PROGAMACION\\WOLLOK\\dino2-te-amordido-un-perro","result":{"failed":0,"ok":1},"timeElapsed":244,"timestamp":"2024-10-01T23:58:15.399Z"}
