@@ -13,8 +13,8 @@ object juego{
 		game.addVisual(cactus)
 		game.addVisual(dino)
 		game.addVisual(reloj)
+		game.addVisual(comenzar)
 		
-
 		game.onCollideDo(dino, { obstaculo => obstaculo.chocar() }) // se fija con que choca ( si es cactus llama a cactus.choar())
 
 		keyboard.space().onPressDo{ self.iniciarGame()}
@@ -28,7 +28,11 @@ object juego{
 		dino.iniciar()
 		reloj.iniciar()
 		cactus.iniciar()
+		game.boardGround("fondo.png")
+		game.removeVisual(comenzar)
 		game.start()
+
+		
 	}
 	
 	method jugar(){
@@ -54,12 +58,19 @@ object gameOver {
 	method position() = game.center()
 	method text() = "GAME OVER"
 }
+object comenzar {
+	method position() = game.center()
+	method text() = "Presione space para comenzar y C para ver tu recorrido"
+	method textColor() = "05043b" 
+
+}
 
 object reloj {
 	var property tiempo = 0 
+	
 	method text() = tiempo.toString()
    	method textColor() = "FFA500FF"
-	method position() = game.at(1, game.height()-1)
+	method position() = game.at(1, game.height()-3)
 	
 	method pasarTiempo() {
 		tiempo = tiempo+1
@@ -95,6 +106,7 @@ object cactus {
 	dino.morir()
 	}
     method detener(){
+		game.addVisual(gameOver)
 		game.schedule(100, { game.stop() }) // terminar game
 	}
 }
