@@ -155,7 +155,7 @@ object dino {
 }
 
 object tiempoDisplay {
-    var property position = game.at(2, game.height() - 4) 
+    var property position = game.at(2, game.height() - 2) 
  
     method text() = "Tiempo: " + reloj.tiempo().toString() // Muestra el tiempo
     method textColor() = "000000" 
