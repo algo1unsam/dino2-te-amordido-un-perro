@@ -13,16 +13,22 @@ object juego{
 		game.addVisual(cactus)
 		game.addVisual(dino)
 		game.addVisual(reloj)
-	
-		keyboard.space().onPressDo{ self.jugar()}
-		game.onCollideDo(dino,{ obstaculo => obstaculo.chocar()})
+		
+
+		game.onCollideDo(dino, { obstaculo => obstaculo.chocar() }) // se fija con que choca ( si es cactus llama a cactus.choar())
+
+		keyboard.space().onPressDo{ self.iniciarGame()}
+
+		keyboard.up().onPressDo({dino.saltar()}) // si toco up salto 
+
 		
 	} 
 	
-	method iniciar(){
+	method iniciarGame(){
 		dino.iniciar()
 		reloj.iniciar()
 		cactus.iniciar()
+		game.start()
 	}
 	
 	method jugar(){
@@ -30,7 +36,7 @@ object juego{
 			dino.saltar()
 		else {
 			game.removeVisual(gameOver)
-			self.iniciar()
+			self.iniciarGame()
 		}
 		
 	}
@@ -52,18 +58,18 @@ object gameOver {
 object reloj {
 	var property tiempo = 0 
 	method text() = tiempo.toString()
-  //method textColor() = "00FF00FF"
+   	method textColor() = "FFA500FF"
 	method position() = game.at(1, game.height()-1)
 	
 	method pasarTiempo() {
-		//COMPLETAR
+		tiempo = tiempo+1
 	}
 	method iniciar(){
 		tiempo = 0
 		game.onTick(100,"tiempo",{self.pasarTiempo()})
 	}
 	method detener(){
-		//COMPLETAR
+		game.stop()
 	}
 }
 
@@ -79,14 +85,17 @@ object cactus {
 	}
 	
 	method mover(){
-		//COMPLETAR
-	}
+    if (position.x() > 0)
+        position = position.left(1)
+    else
+        position = self.posicionInicial()
+	} // posicion inicial = borde derecho , muevo el cactus hacia la izquierda y cuando la posicion en X sea 0 vuelve al borde derecho
 	
-	method chocar(){
-		//COMPLETAR
+	method chocar(){ //llama a dino.morir() que termina el juego mientras dice auch
+	dino.morir()
 	}
     method detener(){
-		//COMPLETAR
+		game.schedule(100, { game.stop() }) // terminar game
 	}
 }
 
@@ -99,29 +108,43 @@ object suelo{
 
 object dino {
 	var vivo = true
-	var property position = game.at(1,suelo.position().y())
-	
+	var property position = game.at(1, suelo.position().y())
+
+	var alturaSalto = 2 // lo q dino salta y baja
+
+	var enSuelo = true 
+
 	method image() = "dino.png"
 	
-	method saltar(){
-		//COMPLETAR
+	method saltar() {
+		if (vivo  && enSuelo) { // Solo si está vivo
+			self.subir(alturaSalto) 
+			enSuelo = false //sino podia saltar muchaas veces jaja
+			game.schedule(800, { self.bajar(alturaSalto) }) // Esperar 0.8 seg y  bajar
+		}
 	}
 	
-	method subir(){
-		position = position.up(1)
+	method subir(cantidad) {
+		position = position.up(cantidad) 
 	}
 	
-	method bajar(){
-		position = position.down(1)
+	method bajar(cantidad) {
+		position = position.down(cantidad) 
+		enSuelo = true
 	}
-	method morir(){
-		game.say(self,"¡Auch!")
+	
+	method morir() {
+		game.say(self, "¡Auch!")
 		vivo = false
+		cactus.detener()
 	}
+	
 	method iniciar() {
 		vivo = true
 	}
+	
 	method estaVivo() {
 		return vivo
 	}
+
 }
