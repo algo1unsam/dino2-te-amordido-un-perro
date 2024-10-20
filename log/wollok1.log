@@ -426,3 +426,7 @@
 {"exitCode":0,"level":"info","message":"👾 Game executed mainExample.DinoGame on c:\\Users\\Alan\\Desktop\\PROGAMACION\\WOLLOK\\dino2-te-amordido-un-perro","timeElapsed":13740,"timestamp":"2024-10-01T23:58:55.099Z"}
 {"exitCode":0,"level":"info","message":"👾 Game executed mainExample.DinoGame on c:\\Users\\Alan\\Desktop\\PROGAMACION\\WOLLOK\\dino2-te-amordido-un-perro","timeElapsed":23744,"timestamp":"2024-10-02T00:00:50.158Z"}
 {"exitCode":0,"level":"info","message":"👾 Game executed mainExample.DinoGame on c:\\Users\\Alan\\Desktop\\PROGAMACION\\WOLLOK\\dino2-te-amordido-un-perro","timeElapsed":9288,"timestamp":"2024-10-02T00:01:08.309Z"}
+{"level":"info","message":"onRequest - WORKSPACE_URI:file:///home/frann/srcUniv/Algoritmos/dino2-te-amordido-un-perro","timestamp":"2024-10-02T00:02:35.382Z"}
+{"exitCode":0,"level":"info","message":"👾 Game executed mainExample.DinoGame on /home/frann/srcUniv/Algoritmos/dino2-te-amordido-un-perro","timeElapsed":13870,"timestamp":"2024-10-02T00:02:53.328Z"}
+{"exitCode":0,"level":"info","message":"👾 Game executed mainExample.DinoGame on /home/frann/srcUniv/Algoritmos/dino2-te-amordido-un-perro","timeElapsed":9605,"timestamp":"2024-10-02T00:03:23.188Z"}
+{"exitCode":0,"level":"info","message":"👾 Game executed mainExample.DinoGame on /home/frann/srcUniv/Algoritmos/dino2-te-amordido-un-perro","timeElapsed":29466,"timestamp":"2024-10-02T00:04:18.244Z"}
